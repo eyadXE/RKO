@@ -1,0 +1,229 @@
+:root {
+  --bg: #f7f3e8;
+  --bg-alt: #f0e4cf;
+  --ink: #1d1b16;
+  --muted: #6b6357;
+  --accent: #d1495b;
+  --accent-dark: #b43445;
+  --card: #ffffff;
+  --border: #e0d6c2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top, #fff9f0 0%, var(--bg) 50%, #f1e1c5 100%);
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  align-items: center;
+  padding: 32px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #fef6e6 0%, #f1d9c7 100%);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(209, 73, 91, 0.12);
+}
+
+.hero-text h1 {
+  margin: 12px 0 8px;
+  font-family: "Fraunces", "Times New Roman", serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  letter-spacing: 0.5px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--accent-dark);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(209, 73, 91, 0.2);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.06);
+}
+
+.card-title {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.stat:last-of-type {
+  border-bottom: none;
+}
+
+.stat-label {
+  color: var(--muted);
+}
+
+.stat-value {
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 12px;
+}
+
+.grid {
+  margin-top: 40px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.panel {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #efe6d2;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.panel-header a {
+  font-size: 0.85rem;
+  color: var(--accent-dark);
+  text-decoration: none;
+}
+
+.downloads {
+  margin-top: 40px;
+  background: linear-gradient(135deg, #fdf4e1 0%, #f7e7d5 100%);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.downloads-title {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.downloads-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.downloads-grid a {
+  background: #ffffff;
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.footer {
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding: 24px;
+  }
+
+  .hero-card {
+    order: 2;
+  }
+}
