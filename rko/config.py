@@ -20,3 +20,6 @@ MAX_RECORDS = 120
 RAW_DATA_PATH = "data/raw_jobs.json"
 PROCESSED_DATA_PATH = "data/processed_jobs.json"
 REPORTS_DIR = "reports"
+
+GROQ_MODEL = "llama-3.3-70b-versatile"
+TOP_N_KEYWORDS = 30

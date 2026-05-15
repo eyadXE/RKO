@@ -14,13 +14,13 @@ This project uses `uv` as its package manager (Python 3.12+).
 # Install dependencies
 uv sync
 
-# Run the full pipeline (single query)
+# Launch the interactive Streamlit UI (Phase 2)
+$env:GROQ_API_KEY = "your_key_here"   # required for AI features
+uv run streamlit run app.py
+
+# Run the CLI pipeline directly (Phase 1, no UI)
 uv run python main.py --query "data analyst" --max-records 120 --max-pages 12
-
-# Run with multiple queries (aggregated, de-duplicated)
 uv run python main.py --queries "ai engineer, machine learning, data scientist"
-
-# Run with a resume file to get missing keyword suggestions
 uv run python main.py --resume path/to/resume.txt --query "data analyst"
 ```
 
@@ -28,7 +28,11 @@ There are no tests or linting configured in this project.
 
 ## Architecture
 
-The pipeline flows linearly through five stages:
+### Phase 2 UI (`app.py`)
+Streamlit app with three tabs: Job Market (keyword charts), Resume Analysis (upload + ATS score), Optimise & Compare (AI rewrite + before/after scores). All business logic lives in `rko/` modules; `app.py` only wires UI widgets to function calls and `st.session_state`.
+
+### Phase 1 CLI pipeline (`main.py`)
+Flows linearly through five stages:
 
 ```
 main.py (CLI + orchestration)
@@ -38,6 +42,11 @@ main.py (CLI + orchestration)
   └── reporting.py   → CSV, JSON, PNG outputs
        └── storage.py (shared JSON I/O)
 ```
+
+### AI / scoring modules
+- **`rko/ai_client.py`** — Groq API wrapper (`score_ats`, `enhance_resume`). API key from `GROQ_API_KEY` env var. Model set in `config.GROQ_MODEL`.
+- **`rko/ats.py`** — Rule-based ATS score (keyword overlap %) and score label band, no external dependencies.
+- **`rko/resume.py`** — Parses `.txt` and `.pdf` resume uploads via `pdfplumber`.
 
 **`rko/config.py`** — Single source of truth for all constants: `BASE_URL`, `USER_AGENT`, `REQUEST_DELAY`, `MAX_RECORDS`, `MAX_PAGES`, and output file paths. Change defaults here, not in `main.py`.
 
