@@ -163,6 +163,8 @@ def preprocess_records(records: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         updated["tokens"] = tokens
         updated["token_count"] = len(tokens)
         updated["missing_description"] = not bool(text_source)
+        if updated["missing_description"]:
+            continue
         if not updated.get("industry"):
             updated["industry"] = "Unknown"
         cleaned.append(updated)

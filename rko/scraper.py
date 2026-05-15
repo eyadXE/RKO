@@ -8,7 +8,6 @@ from urllib.robotparser import RobotFileParser
 
 import requests
 from bs4 import BeautifulSoup
-
 from .config import (
     BASE_URL,
     REQUEST_DELAY,
@@ -36,7 +35,7 @@ def can_fetch(parser: Optional[RobotFileParser], url: str) -> bool:
         return False
     return parser.can_fetch(USER_AGENT, url)
 
-
+    
 def build_search_url(query: str, start: int) -> str:
     params = {"a": "hpb", "q": query, "start": start}
     return f"{BASE_URL}{SEARCH_PATH}?{urlencode(params)}"
