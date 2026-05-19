@@ -1,0 +1,202 @@
+[
+  {
+    "token": "support",
+    "doc_freq": 15
+  },
+  {
+    "token": "business",
+    "doc_freq": 15
+  },
+  {
+    "token": "years",
+    "doc_freq": 15
+  },
+  {
+    "token": "experience",
+    "doc_freq": 15
+  },
+  {
+    "token": "analysis",
+    "doc_freq": 14
+  },
+  {
+    "token": "data",
+    "doc_freq": 14
+  },
+  {
+    "token": "performance",
+    "doc_freq": 13
+  },
+  {
+    "token": "strong",
+    "doc_freq": 13
+  },
+  {
+    "token": "skills",
+    "doc_freq": 13
+  },
+  {
+    "token": "excel",
+    "doc_freq": 12
+  },
+  {
+    "token": "teams",
+    "doc_freq": 11
+  },
+  {
+    "token": "analyze",
+    "doc_freq": 11
+  },
+  {
+    "token": "advanced",
+    "doc_freq": 11
+  },
+  {
+    "token": "tools",
+    "doc_freq": 11
+  },
+  {
+    "token": "dashboards",
+    "doc_freq": 10
+  },
+  {
+    "token": "management",
+    "doc_freq": 10
+  },
+  {
+    "token": "knowledge",
+    "doc_freq": 10
+  },
+  {
+    "token": "related",
+    "doc_freq": 10
+  },
+  {
+    "token": "communication",
+    "doc_freq": 10
+  },
+  {
+    "token": "reporting",
+    "doc_freq": 9
+  },
+  {
+    "token": "identify",
+    "doc_freq": 9
+  },
+  {
+    "token": "analytical",
+    "doc_freq": 9
+  },
+  {
+    "token": "power",
+    "doc_freq": 9
+  },
+  {
+    "token": "forecasting",
+    "doc_freq": 9
+  },
+  {
+    "token": "ability",
+    "doc_freq": 9
+  },
+  {
+    "token": "bachelor",
+    "doc_freq": 9
+  },
+  {
+    "token": "degree",
+    "doc_freq": 9
+  },
+  {
+    "token": "maintain",
+    "doc_freq": 8
+  },
+  {
+    "token": "work",
+    "doc_freq": 8
+  },
+  {
+    "token": "role",
+    "doc_freq": 8
+  },
+  {
+    "token": "complex",
+    "doc_freq": 8
+  },
+  {
+    "token": "key",
+    "doc_freq": 8
+  },
+  {
+    "token": "trends",
+    "doc_freq": 8
+  },
+  {
+    "token": "opportunities",
+    "doc_freq": 8
+  },
+  {
+    "token": "ensure",
+    "doc_freq": 8
+  },
+  {
+    "token": "proficiency",
+    "doc_freq": 8
+  },
+  {
+    "token": "excellent",
+    "doc_freq": 8
+  },
+  {
+    "token": "development",
+    "doc_freq": 7
+  },
+  {
+    "token": "analyst",
+    "doc_freq": 7
+  },
+  {
+    "token": "working",
+    "doc_freq": 7
+  },
+  {
+    "token": "actionable",
+    "doc_freq": 7
+  },
+  {
+    "token": "reports",
+    "doc_freq": 7
+  },
+  {
+    "token": "planning",
+    "doc_freq": 7
+  },
+  {
+    "token": "systems",
+    "doc_freq": 7
+  },
+  {
+    "token": "proven",
+    "doc_freq": 7
+  },
+  {
+    "token": "insights",
+    "doc_freq": 7
+  },
+  {
+    "token": "prepare",
+    "doc_freq": 7
+  },
+  {
+    "token": "conduct",
+    "doc_freq": 6
+  },
+  {
+    "token": "team",
+    "doc_freq": 6
+  },
+  {
+    "token": "decision",
+    "doc_freq": 6
+  }
+]

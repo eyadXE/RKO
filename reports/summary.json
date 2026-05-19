@@ -1,498 +1,454 @@
 {
   "stats": {
-    "total_records": 100,
+    "total_records": 15,
     "missing_description": 0,
-    "average_token_count": 248.01,
-    "median_token_count": 225.0,
-    "min_token_count": 12,
-    "max_token_count": 742,
-    "p25_token_count": 158.0,
-    "p75_token_count": 305.25,
-    "std_token_count": 126.18,
-    "unique_keywords": 4018
+    "average_token_count": 208.13,
+    "median_token_count": 173,
+    "min_token_count": 62,
+    "max_token_count": 403,
+    "p25_token_count": 145.0,
+    "p75_token_count": 291.0,
+    "std_token_count": 101.37,
+    "unique_keywords": 1120
   },
   "top_keywords": [
     [
-      "experience",
-      372
-    ],
-    [
       "data",
-      311
+      92
     ],
     [
-      "technical",
-      231
+      "financial",
+      71
     ],
     [
-      "engineering",
-      164
+      "analysis",
+      43
     ],
     [
-      "systems",
-      157
-    ],
-    [
-      "strong",
-      145
-    ],
-    [
-      "design",
-      144
-    ],
-    [
-      "management",
-      136
-    ],
-    [
-      "performance",
-      136
-    ],
-    [
-      "skills",
-      135
-    ],
-    [
-      "work",
-      132
-    ],
-    [
-      "development",
-      123
+      "experience",
+      41
     ],
     [
       "business",
-      120
-    ],
-    [
-      "team",
-      113
-    ],
-    [
-      "ensure",
-      110
-    ],
-    [
-      "tools",
-      109
-    ],
-    [
-      "project",
-      104
-    ],
-    [
-      "ability",
-      101
-    ],
-    [
-      "role",
-      98
-    ],
-    [
-      "quality",
-      95
+      36
     ],
     [
       "support",
-      94
+      30
     ],
     [
-      "knowledge",
-      94
+      "skills",
+      28
     ],
     [
-      "understanding",
-      90
+      "strong",
+      26
     ],
     [
-      "product",
-      86
+      "performance",
+      24
     ],
     [
-      "software",
-      85
+      "management",
+      22
     ],
     [
-      "build",
-      82
+      "reporting",
+      20
     ],
     [
-      "related",
-      81
+      "advanced",
+      18
     ],
     [
-      "across",
-      80
+      "tools",
+      18
+    ],
+    [
+      "analyst",
+      17
+    ],
+    [
+      "planning",
+      17
+    ],
+    [
+      "analyze",
+      16
     ],
     [
       "years",
-      80
+      16
     ],
     [
-      "maintain",
-      77
+      "supply",
+      16
+    ],
+    [
+      "excel",
+      15
+    ],
+    [
+      "key",
+      15
+    ],
+    [
+      "marketing",
+      15
+    ],
+    [
+      "teams",
+      14
+    ],
+    [
+      "power",
+      14
+    ],
+    [
+      "ability",
+      14
+    ],
+    [
+      "dashboards",
+      13
+    ],
+    [
+      "analytical",
+      13
+    ],
+    [
+      "role",
+      13
+    ],
+    [
+      "complex",
+      13
+    ],
+    [
+      "related",
+      13
+    ],
+    [
+      "communication",
+      13
     ]
   ],
   "industry_keywords": {
     "Unknown": [
       [
-        "experience",
-        372
-      ],
-      [
         "data",
-        311
+        92
       ],
       [
-        "technical",
-        231
+        "financial",
+        71
       ],
       [
-        "engineering",
-        164
+        "analysis",
+        43
       ],
       [
-        "systems",
-        157
-      ],
-      [
-        "strong",
-        145
-      ],
-      [
-        "design",
-        144
-      ],
-      [
-        "management",
-        136
-      ],
-      [
-        "performance",
-        136
-      ],
-      [
-        "skills",
-        135
-      ],
-      [
-        "work",
-        132
-      ],
-      [
-        "development",
-        123
+        "experience",
+        41
       ],
       [
         "business",
-        120
-      ],
-      [
-        "team",
-        113
-      ],
-      [
-        "ensure",
-        110
-      ],
-      [
-        "tools",
-        109
-      ],
-      [
-        "project",
-        104
-      ],
-      [
-        "ability",
-        101
-      ],
-      [
-        "role",
-        98
-      ],
-      [
-        "quality",
-        95
+        36
       ],
       [
         "support",
-        94
+        30
       ],
       [
-        "knowledge",
-        94
+        "skills",
+        28
       ],
       [
-        "understanding",
-        90
+        "strong",
+        26
       ],
       [
-        "product",
-        86
+        "performance",
+        24
       ],
       [
-        "software",
-        85
+        "management",
+        22
       ],
       [
-        "build",
-        82
+        "reporting",
+        20
       ],
       [
-        "related",
-        81
+        "advanced",
+        18
       ],
       [
-        "across",
-        80
+        "tools",
+        18
+      ],
+      [
+        "analyst",
+        17
+      ],
+      [
+        "planning",
+        17
+      ],
+      [
+        "analyze",
+        16
       ],
       [
         "years",
-        80
+        16
       ],
       [
-        "maintain",
-        77
+        "supply",
+        16
+      ],
+      [
+        "excel",
+        15
+      ],
+      [
+        "key",
+        15
+      ],
+      [
+        "marketing",
+        15
+      ],
+      [
+        "teams",
+        14
+      ],
+      [
+        "power",
+        14
+      ],
+      [
+        "ability",
+        14
+      ],
+      [
+        "dashboards",
+        13
+      ],
+      [
+        "analytical",
+        13
+      ],
+      [
+        "role",
+        13
+      ],
+      [
+        "complex",
+        13
+      ],
+      [
+        "related",
+        13
+      ],
+      [
+        "communication",
+        13
       ]
     ]
   },
   "keyword_suggestions": [
     [
-      "experience",
-      372
-    ],
-    [
       "data",
-      311
+      92
     ],
     [
-      "technical",
-      231
+      "financial",
+      71
     ],
     [
-      "engineering",
-      164
+      "analysis",
+      43
     ],
     [
-      "systems",
-      157
-    ],
-    [
-      "strong",
-      145
-    ],
-    [
-      "design",
-      144
-    ],
-    [
-      "management",
-      136
-    ],
-    [
-      "performance",
-      136
-    ],
-    [
-      "skills",
-      135
-    ],
-    [
-      "work",
-      132
-    ],
-    [
-      "development",
-      123
+      "experience",
+      41
     ],
     [
       "business",
-      120
-    ],
-    [
-      "team",
-      113
-    ],
-    [
-      "ensure",
-      110
-    ],
-    [
-      "tools",
-      109
-    ],
-    [
-      "project",
-      104
-    ],
-    [
-      "ability",
-      101
-    ],
-    [
-      "role",
-      98
-    ],
-    [
-      "quality",
-      95
+      36
     ],
     [
       "support",
-      94
+      30
     ],
     [
-      "knowledge",
-      94
+      "skills",
+      28
     ],
     [
-      "understanding",
-      90
+      "strong",
+      26
     ],
     [
-      "product",
-      86
+      "performance",
+      24
     ],
     [
-      "software",
-      85
+      "management",
+      22
     ],
     [
-      "build",
-      82
+      "reporting",
+      20
     ],
     [
-      "related",
-      81
+      "advanced",
+      18
     ],
     [
-      "across",
-      80
+      "tools",
+      18
+    ],
+    [
+      "analyst",
+      17
+    ],
+    [
+      "planning",
+      17
+    ],
+    [
+      "analyze",
+      16
     ],
     [
       "years",
-      80
+      16
     ],
     [
-      "maintain",
-      77
+      "supply",
+      16
+    ],
+    [
+      "excel",
+      15
+    ],
+    [
+      "key",
+      15
+    ],
+    [
+      "marketing",
+      15
+    ],
+    [
+      "teams",
+      14
+    ],
+    [
+      "power",
+      14
+    ],
+    [
+      "ability",
+      14
+    ],
+    [
+      "dashboards",
+      13
+    ],
+    [
+      "analytical",
+      13
+    ],
+    [
+      "role",
+      13
+    ],
+    [
+      "complex",
+      13
+    ],
+    [
+      "related",
+      13
+    ],
+    [
+      "communication",
+      13
     ]
   ],
   "distributions": {
     "companies": [
       [
-        "Vertex Technologies",
-        8
-      ],
-      [
-        "Solship",
-        3
-      ],
-      [
-        "TECHNOSAT",
-        3
-      ],
-      [
-        "Anecdote agency",
-        2
-      ],
-      [
-        "Fixed Solutions",
-        2
-      ],
-      [
-        "Makkook.AI",
-        2
-      ],
-      [
-        "Madar Soft",
-        2
-      ],
-      [
-        "Ibn Sina Pharma",
-        2
-      ],
-      [
-        "Cubic Information Systems",
-        2
-      ],
-      [
-        "Raya Distribution",
-        2
-      ],
-      [
-        "Saint-Gobain",
-        2
-      ],
-      [
-        "Bluebell Pharmaceuticals",
-        2
-      ],
-      [
-        "StorPros",
+        "Sprix",
         1
       ],
       [
-        "CC Global Group, LLC",
+        "GPS",
         1
       ],
       [
-        "Big Life Journal",
+        "bedinroom.com",
+        1
+      ],
+      [
+        "Valmore Holding",
+        1
+      ],
+      [
+        "Zinox&Master",
+        1
+      ],
+      [
+        "Majestic Pharmaceuticals",
+        1
+      ],
+      [
+        "EPP",
+        1
+      ],
+      [
+        "Horizon Operation and Ma...",
+        1
+      ],
+      [
+        "Zworld Holding",
+        1
+      ],
+      [
+        "Al Ahly Medical Company",
+        1
+      ],
+      [
+        "Dora Management Solution...",
+        1
+      ],
+      [
+        "Roya Developments",
+        1
+      ],
+      [
+        "Wise House Consultancy",
+        1
+      ],
+      [
+        "almentor",
+        1
+      ],
+      [
+        "RISEUP (Endemag for Admi...",
         1
       ]
     ],
     "locations": [
       [
         "Cairo, Egypt",
-        26
+        3
       ],
       [
         "New Cairo, Cairo",
-        13
-      ],
-      [
-        "Maadi, Cairo",
-        12
-      ],
-      [
-        "6th of October, Giza",
-        6
-      ],
-      [
-        "Obour City, Cairo",
-        4
-      ],
-      [
-        "Abu Rawash, Giza",
-        2
-      ],
-      [
-        "Alexandria, Egypt",
-        2
-      ],
-      [
-        "Fleming, Alexandria",
-        2
-      ],
-      [
-        "Alsadat City, Monufya",
-        2
-      ],
-      [
-        "Nasr City, Cairo",
-        2
-      ],
-      [
-        "Sheraton, Cairo",
-        2
-      ],
-      [
-        "Giza, Egypt",
-        2
-      ],
-      [
-        "New Capital, Cairo",
         2
       ],
       [
@@ -500,75 +456,99 @@
         2
       ],
       [
-        "Sheikh Zayed, Giza",
+        "Maadi, Cairo",
         2
+      ],
+      [
+        "Agouza, Giza",
+        1
+      ],
+      [
+        "Obour City, Cairo",
+        1
+      ],
+      [
+        "Port Said, Egypt",
+        1
+      ],
+      [
+        "New Capital, Cairo",
+        1
+      ],
+      [
+        "Giza, Giza",
+        1
+      ],
+      [
+        "Sheraton, Cairo",
+        1
       ]
     ],
     "industries": [
       [
         "Unknown",
-        100
+        15
       ]
     ],
     "employment_types": [
       [
         "Full Time",
-        97
+        15
       ],
       [
         "On-site",
-        70
+        12
       ],
       [
         "Hybrid",
-        16
+        2
+      ],
+      [
+        "Sprix",
+        1
+      ],
+      [
+        "GPS",
+        1
       ],
       [
         "Remote",
-        14
+        1
       ],
       [
-        "Vertex Technologies",
-        8
+        "bedinroom.com",
+        1
       ],
       [
-        "Freelance / Project",
-        5
+        "Valmore Holding",
+        1
       ],
       [
-        "Part Time",
-        4
+        "Zinox&Master",
+        1
       ],
       [
-        "TECHNOSAT",
-        3
+        "Majestic Pharmaceuticals",
+        1
       ],
       [
-        "Fixed Solutions",
-        2
+        "EPP",
+        1
       ],
       [
-        "Makkook.AI",
-        2
+        "Horizon Operation and Management",
+        1
       ],
       [
-        "Madar Soft",
-        2
+        "Zworld Holding",
+        1
       ],
       [
-        "Ibn Sina Pharma",
-        2
+        "Al Ahly Medical Company",
+        1
       ],
       [
-        "Raya Distribution",
-        2
-      ],
-      [
-        "Saint-Gobain",
-        2
-      ],
-      [
-        "StorPros",
+        "Dora Management Solutions",
         1
       ]
     ]

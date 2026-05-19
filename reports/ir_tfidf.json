@@ -1,0 +1,302 @@
+[
+  {
+    "token": "financial",
+    "tfidf_score": 0.015922,
+    "doc_freq": 6,
+    "doc_pct": 40.0
+  },
+  {
+    "token": "supply",
+    "tfidf_score": 0.009411,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "marketing",
+    "tfidf_score": 0.007523,
+    "doc_freq": 4,
+    "doc_pct": 26.7
+  },
+  {
+    "token": "chain",
+    "tfidf_score": 0.006732,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "sales",
+    "tfidf_score": 0.006031,
+    "doc_freq": 3,
+    "doc_pct": 20.0
+  },
+  {
+    "token": "credit",
+    "tfidf_score": 0.00456,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "project",
+    "tfidf_score": 0.004372,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "market",
+    "tfidf_score": 0.004214,
+    "doc_freq": 5,
+    "doc_pct": 33.3
+  },
+  {
+    "token": "across",
+    "tfidf_score": 0.004013,
+    "doc_freq": 4,
+    "doc_pct": 26.7
+  },
+  {
+    "token": "strategic",
+    "tfidf_score": 0.003909,
+    "doc_freq": 5,
+    "doc_pct": 33.3
+  },
+  {
+    "token": "analyzing",
+    "tfidf_score": 0.003532,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "logistics",
+    "tfidf_score": 0.003506,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "planning",
+    "tfidf_score": 0.003393,
+    "doc_freq": 7,
+    "doc_pct": 46.7
+  },
+  {
+    "token": "risk",
+    "tfidf_score": 0.003288,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "good",
+    "tfidf_score": 0.003272,
+    "doc_freq": 3,
+    "doc_pct": 20.0
+  },
+  {
+    "token": "reporting",
+    "tfidf_score": 0.003213,
+    "doc_freq": 9,
+    "doc_pct": 60.0
+  },
+  {
+    "token": "attention",
+    "tfidf_score": 0.003195,
+    "doc_freq": 5,
+    "doc_pct": 33.3
+  },
+  {
+    "token": "finance",
+    "tfidf_score": 0.003159,
+    "doc_freq": 6,
+    "doc_pct": 40.0
+  },
+  {
+    "token": "assessment",
+    "tfidf_score": 0.003153,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "policies",
+    "tfidf_score": 0.003141,
+    "doc_freq": 3,
+    "doc_pct": 20.0
+  },
+  {
+    "token": "analytics",
+    "tfidf_score": 0.003044,
+    "doc_freq": 3,
+    "doc_pct": 20.0
+  },
+  {
+    "token": "detail",
+    "tfidf_score": 0.003006,
+    "doc_freq": 5,
+    "doc_pct": 33.3
+  },
+  {
+    "token": "platforms",
+    "tfidf_score": 0.002951,
+    "doc_freq": 3,
+    "doc_pct": 20.0
+  },
+  {
+    "token": "accuracy",
+    "tfidf_score": 0.002872,
+    "doc_freq": 4,
+    "doc_pct": 26.7
+  },
+  {
+    "token": "logic",
+    "tfidf_score": 0.002855,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "assist",
+    "tfidf_score": 0.002786,
+    "doc_freq": 5,
+    "doc_pct": 33.3
+  },
+  {
+    "token": "analyst",
+    "tfidf_score": 0.002774,
+    "doc_freq": 7,
+    "doc_pct": 46.7
+  },
+  {
+    "token": "job",
+    "tfidf_score": 0.002773,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "budgeting",
+    "tfidf_score": 0.002763,
+    "doc_freq": 4,
+    "doc_pct": 26.7
+  },
+  {
+    "token": "inventory",
+    "tfidf_score": 0.002753,
+    "doc_freq": 3,
+    "doc_pct": 20.0
+  },
+  {
+    "token": "key",
+    "tfidf_score": 0.002725,
+    "doc_freq": 8,
+    "doc_pct": 53.3
+  },
+  {
+    "token": "flows",
+    "tfidf_score": 0.002718,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "collect",
+    "tfidf_score": 0.002699,
+    "doc_freq": 4,
+    "doc_pct": 26.7
+  },
+  {
+    "token": "improvement",
+    "tfidf_score": 0.002659,
+    "doc_freq": 3,
+    "doc_pct": 20.0
+  },
+  {
+    "token": "insights",
+    "tfidf_score": 0.002653,
+    "doc_freq": 7,
+    "doc_pct": 46.7
+  },
+  {
+    "token": "digital",
+    "tfidf_score": 0.00264,
+    "doc_freq": 4,
+    "doc_pct": 26.7
+  },
+  {
+    "token": "plus",
+    "tfidf_score": 0.002639,
+    "doc_freq": 4,
+    "doc_pct": 26.7
+  },
+  {
+    "token": "product",
+    "tfidf_score": 0.002625,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "procurement",
+    "tfidf_score": 0.002625,
+    "doc_freq": 3,
+    "doc_pct": 20.0
+  },
+  {
+    "token": "professional",
+    "tfidf_score": 0.002615,
+    "doc_freq": 5,
+    "doc_pct": 33.3
+  },
+  {
+    "token": "technical",
+    "tfidf_score": 0.002609,
+    "doc_freq": 4,
+    "doc_pct": 26.7
+  },
+  {
+    "token": "tableau",
+    "tfidf_score": 0.002606,
+    "doc_freq": 5,
+    "doc_pct": 33.3
+  },
+  {
+    "token": "cross",
+    "tfidf_score": 0.002595,
+    "doc_freq": 5,
+    "doc_pct": 33.3
+  },
+  {
+    "token": "problem",
+    "tfidf_score": 0.002587,
+    "doc_freq": 6,
+    "doc_pct": 40.0
+  },
+  {
+    "token": "analytical",
+    "tfidf_score": 0.002582,
+    "doc_freq": 9,
+    "doc_pct": 60.0
+  },
+  {
+    "token": "maintain",
+    "tfidf_score": 0.002569,
+    "doc_freq": 8,
+    "doc_pct": 53.3
+  },
+  {
+    "token": "decision",
+    "tfidf_score": 0.002555,
+    "doc_freq": 6,
+    "doc_pct": 40.0
+  },
+  {
+    "token": "power",
+    "tfidf_score": 0.002541,
+    "doc_freq": 9,
+    "doc_pct": 60.0
+  },
+  {
+    "token": "reports",
+    "tfidf_score": 0.002539,
+    "doc_freq": 7,
+    "doc_pct": 46.7
+  },
+  {
+    "token": "management",
+    "tfidf_score": 0.002532,
+    "doc_freq": 10,
+    "doc_pct": 66.7
+  }
+]

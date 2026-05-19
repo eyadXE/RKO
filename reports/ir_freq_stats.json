@@ -1,0 +1,302 @@
+[
+  {
+    "token": "data",
+    "total_freq": 92,
+    "doc_freq": 14,
+    "doc_pct": 93.3
+  },
+  {
+    "token": "financial",
+    "total_freq": 71,
+    "doc_freq": 6,
+    "doc_pct": 40.0
+  },
+  {
+    "token": "analysis",
+    "total_freq": 43,
+    "doc_freq": 14,
+    "doc_pct": 93.3
+  },
+  {
+    "token": "experience",
+    "total_freq": 41,
+    "doc_freq": 15,
+    "doc_pct": 100.0
+  },
+  {
+    "token": "business",
+    "total_freq": 36,
+    "doc_freq": 15,
+    "doc_pct": 100.0
+  },
+  {
+    "token": "support",
+    "total_freq": 30,
+    "doc_freq": 15,
+    "doc_pct": 100.0
+  },
+  {
+    "token": "skills",
+    "total_freq": 28,
+    "doc_freq": 13,
+    "doc_pct": 86.7
+  },
+  {
+    "token": "strong",
+    "total_freq": 26,
+    "doc_freq": 13,
+    "doc_pct": 86.7
+  },
+  {
+    "token": "performance",
+    "total_freq": 24,
+    "doc_freq": 13,
+    "doc_pct": 86.7
+  },
+  {
+    "token": "management",
+    "total_freq": 22,
+    "doc_freq": 10,
+    "doc_pct": 66.7
+  },
+  {
+    "token": "reporting",
+    "total_freq": 20,
+    "doc_freq": 9,
+    "doc_pct": 60.0
+  },
+  {
+    "token": "advanced",
+    "total_freq": 18,
+    "doc_freq": 11,
+    "doc_pct": 73.3
+  },
+  {
+    "token": "tools",
+    "total_freq": 18,
+    "doc_freq": 11,
+    "doc_pct": 73.3
+  },
+  {
+    "token": "analyst",
+    "total_freq": 17,
+    "doc_freq": 7,
+    "doc_pct": 46.7
+  },
+  {
+    "token": "planning",
+    "total_freq": 17,
+    "doc_freq": 7,
+    "doc_pct": 46.7
+  },
+  {
+    "token": "analyze",
+    "total_freq": 16,
+    "doc_freq": 11,
+    "doc_pct": 73.3
+  },
+  {
+    "token": "years",
+    "total_freq": 16,
+    "doc_freq": 15,
+    "doc_pct": 100.0
+  },
+  {
+    "token": "supply",
+    "total_freq": 16,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "excel",
+    "total_freq": 15,
+    "doc_freq": 12,
+    "doc_pct": 80.0
+  },
+  {
+    "token": "key",
+    "total_freq": 15,
+    "doc_freq": 8,
+    "doc_pct": 53.3
+  },
+  {
+    "token": "marketing",
+    "total_freq": 15,
+    "doc_freq": 4,
+    "doc_pct": 26.7
+  },
+  {
+    "token": "teams",
+    "total_freq": 14,
+    "doc_freq": 11,
+    "doc_pct": 73.3
+  },
+  {
+    "token": "power",
+    "total_freq": 14,
+    "doc_freq": 9,
+    "doc_pct": 60.0
+  },
+  {
+    "token": "ability",
+    "total_freq": 14,
+    "doc_freq": 9,
+    "doc_pct": 60.0
+  },
+  {
+    "token": "dashboards",
+    "total_freq": 13,
+    "doc_freq": 10,
+    "doc_pct": 66.7
+  },
+  {
+    "token": "analytical",
+    "total_freq": 13,
+    "doc_freq": 9,
+    "doc_pct": 60.0
+  },
+  {
+    "token": "role",
+    "total_freq": 13,
+    "doc_freq": 8,
+    "doc_pct": 53.3
+  },
+  {
+    "token": "complex",
+    "total_freq": 13,
+    "doc_freq": 8,
+    "doc_pct": 53.3
+  },
+  {
+    "token": "related",
+    "total_freq": 13,
+    "doc_freq": 10,
+    "doc_pct": 66.7
+  },
+  {
+    "token": "communication",
+    "total_freq": 13,
+    "doc_freq": 10,
+    "doc_pct": 66.7
+  },
+  {
+    "token": "strategic",
+    "total_freq": 13,
+    "doc_freq": 5,
+    "doc_pct": 33.3
+  },
+  {
+    "token": "identify",
+    "total_freq": 12,
+    "doc_freq": 9,
+    "doc_pct": 60.0
+  },
+  {
+    "token": "knowledge",
+    "total_freq": 12,
+    "doc_freq": 10,
+    "doc_pct": 66.7
+  },
+  {
+    "token": "market",
+    "total_freq": 12,
+    "doc_freq": 5,
+    "doc_pct": 33.3
+  },
+  {
+    "token": "opportunities",
+    "total_freq": 12,
+    "doc_freq": 8,
+    "doc_pct": 53.3
+  },
+  {
+    "token": "forecasting",
+    "total_freq": 12,
+    "doc_freq": 9,
+    "doc_pct": 60.0
+  },
+  {
+    "token": "professional",
+    "total_freq": 12,
+    "doc_freq": 5,
+    "doc_pct": 33.3
+  },
+  {
+    "token": "maintain",
+    "total_freq": 11,
+    "doc_freq": 8,
+    "doc_pct": 53.3
+  },
+  {
+    "token": "team",
+    "total_freq": 11,
+    "doc_freq": 6,
+    "doc_pct": 40.0
+  },
+  {
+    "token": "booking",
+    "total_freq": 11,
+    "doc_freq": 1,
+    "doc_pct": 6.7
+  },
+  {
+    "token": "degree",
+    "total_freq": 11,
+    "doc_freq": 9,
+    "doc_pct": 60.0
+  },
+  {
+    "token": "finance",
+    "total_freq": 11,
+    "doc_freq": 6,
+    "doc_pct": 40.0
+  },
+  {
+    "token": "chain",
+    "total_freq": 11,
+    "doc_freq": 2,
+    "doc_pct": 13.3
+  },
+  {
+    "token": "across",
+    "total_freq": 10,
+    "doc_freq": 4,
+    "doc_pct": 26.7
+  },
+  {
+    "token": "systems",
+    "total_freq": 10,
+    "doc_freq": 7,
+    "doc_pct": 46.7
+  },
+  {
+    "token": "proficiency",
+    "total_freq": 10,
+    "doc_freq": 8,
+    "doc_pct": 53.3
+  },
+  {
+    "token": "technical",
+    "total_freq": 10,
+    "doc_freq": 4,
+    "doc_pct": 26.7
+  },
+  {
+    "token": "within",
+    "total_freq": 10,
+    "doc_freq": 5,
+    "doc_pct": 33.3
+  },
+  {
+    "token": "sales",
+    "total_freq": 9,
+    "doc_freq": 3,
+    "doc_pct": 20.0
+  },
+  {
+    "token": "work",
+    "total_freq": 9,
+    "doc_freq": 8,
+    "doc_pct": 53.3
+  }
+]

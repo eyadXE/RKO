@@ -1,119 +1,750 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Resume Keyword Optimser - Reports</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="page">
-      <header class="hero">
-        <div class="hero-text">
-          <p class="eyebrow">Resume Keyword Optimser</p>
-          <h1>Report Dashboard</h1>
-          <p class="lead">
-            A static overview of keyword insights from Wuzzuf job postings. Open the
-            links below for raw data and detailed tables.
-          </p>
-          <div class="hero-actions">
-            <a class="btn" href="../reports/summary.json">Summary JSON</a>
-            <a class="btn ghost" href="../data/processed_jobs.json">Processed Data</a>
-          </div>
-        </div>
-        <div class="hero-card">
-          <div class="card-title">Dataset Snapshot</div>
-          <div class="card-body">
-            <div class="stat">
-              <span class="stat-label">Records</span>
-              <span class="stat-value">100</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Keywords</span>
-              <span class="stat-value">4018</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label">Queries</span>
-              <span class="stat-value">8</span>
-            </div>
-            <p class="muted">Update these values after each run.</p>
-          </div>
-        </div>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RKO — Resume Keyword Optimiser</title>
 
-      <section class="grid">
-        <article class="panel">
-          <div class="panel-header">
-            <h2>Top Keywords</h2>
-            <a href="../reports/keyword_frequency.csv">CSV</a>
-          </div>
-          <img src="../reports/top_keywords.png" alt="Top keyword frequency chart" />
-        </article>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
 
-        <article class="panel">
-          <div class="panel-header">
-            <h2>Token Count Distribution</h2>
-            <a href="../reports/summary.json">Stats</a>
-          </div>
-          <img src="../reports/token_count_hist.png" alt="Token count distribution" />
-        </article>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 
-        <article class="panel">
-          <div class="panel-header">
-            <h2>Top Companies</h2>
-            <a href="../reports/company_counts.csv">CSV</a>
-          </div>
-          <img src="../reports/company_counts.png" alt="Top companies chart" />
-        </article>
+  <style>
+    /* ── Reset & Variables ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        <article class="panel">
-          <div class="panel-header">
-            <h2>Top Locations</h2>
-            <a href="../reports/location_counts.csv">CSV</a>
-          </div>
-          <img src="../reports/location_counts.png" alt="Top locations chart" />
-        </article>
+    :root {
+      --bg:      #0d0f14;
+      --surface: #161a24;
+      --card:    #1c2130;
+      --border:  #252c3d;
+      --accent:  #4f8ef7;
+      --accent2: #34d399;
+      --accent3: #f59e0b;
+      --text:    #e2e8f0;
+      --muted:   #64748b;
+      --font-display: 'Syne', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+      --font-body:    'Inter', sans-serif;
+      --radius: 12px;
+      --radius-sm: 6px;
+    }
 
-        <article class="panel">
-          <div class="panel-header">
-            <h2>Top Industries</h2>
-            <a href="../reports/industry_counts.csv">CSV</a>
-          </div>
-          <img src="../reports/industry_counts.png" alt="Top industries chart" />
-        </article>
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-        <article class="panel">
-          <div class="panel-header">
-            <h2>Employment Types</h2>
-            <a href="../reports/employment_type_counts.csv">CSV</a>
-          </div>
-          <img src="../reports/employment_type_counts.png" alt="Employment types chart" />
-        </article>
-      </section>
+    /* ── Noise texture overlay ─────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: .4;
+    }
 
-      <section class="downloads">
-        <div class="downloads-title">Downloads</div>
-        <div class="downloads-grid">
-          <a href="../reports/summary.json">Summary JSON</a>
-          <a href="../reports/keyword_suggestions.csv">Keyword Suggestions CSV</a>
-          <a href="../reports/industry_keywords.csv">Industry Keywords CSV</a>
-          <a href="../data/raw_jobs.json">Raw Jobs JSON</a>
-          <a href="../data/processed_jobs.json">Processed Jobs JSON</a>
-        </div>
-      </section>
+    /* ── Layout ────────────────────────────────────────────────── */
+    .wrapper { max-width: 1320px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-      <footer class="footer">
-        <p>
-          Generated by the Resume Keyword Optimser pipeline. Update the charts by
-          re-running the scraper and preprocessing steps.
-        </p>
-      </footer>
+    /* ── Header ────────────────────────────────────────────────── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .logo { font-family: var(--font-display); font-size: 28px; font-weight: 800; color: var(--accent); letter-spacing: -.5px; }
+    .logo span { color: var(--text); }
+    .tagline { color: var(--muted); font-family: var(--font-mono); font-size: 12px; letter-spacing: .5px; margin-left: auto; }
+
+    /* ── Nav Tabs ──────────────────────────────────────────────── */
+    nav {
+      display: flex;
+      gap: 4px;
+      padding: 20px 0 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-btn {
+      padding: 10px 20px;
+      border: none;
+      background: none;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+      position: relative;
+      bottom: -1px;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── Tab Panels ────────────────────────────────────────────── */
+    .tab-panel { display: none; padding: 32px 0; }
+    .tab-panel.active { display: block; }
+
+    /* ── Section Heading ───────────────────────────────────────── */
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 24px;
+      max-width: 680px;
+      line-height: 1.7;
+    }
+
+    /* ── Stat Cards ────────────────────────────────────────────── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .stat-label { font-size: 11px; font-family: var(--font-mono); color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .stat-value { font-size: 28px; font-family: var(--font-display); font-weight: 800; color: var(--text); }
+    .stat-value.accent  { color: var(--accent); }
+    .stat-value.accent2 { color: var(--accent2); }
+    .stat-value.accent3 { color: var(--accent3); }
+
+    /* ── Cards ─────────────────────────────────────────────────── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-title .badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: rgba(79,142,247,.15);
+      color: var(--accent);
+      letter-spacing: .5px;
+    }
+
+    /* ── Grid helpers ──────────────────────────────────────────── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    @media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+    /* ── Canvas charts ─────────────────────────────────────────── */
+    canvas { max-height: 340px; }
+
+    /* ── IR Tables ─────────────────────────────────────────────── */
+    .ir-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    thead th {
+      background: var(--surface);
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(255,255,255,.03); }
+    tbody td { padding: 9px 14px; font-family: var(--font-mono); }
+    .rank-cell { color: var(--muted); font-size: 11px; width: 44px; }
+    .token-cell { color: var(--accent2); font-weight: 500; }
+    .num-cell { color: var(--text); text-align: right; }
+    .pct-cell { color: var(--accent3); text-align: right; }
+
+    /* ── Bar (inline) ──────────────────────────────────────────── */
+    .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .bar-label { font-family: var(--font-mono); font-size: 12px; color: var(--accent2); min-width: 110px; }
+    .bar-track { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%); transition: width .4s ease; }
+    .bar-count { font-family: var(--font-mono); font-size: 11px; color: var(--muted); min-width: 36px; text-align: right; }
+
+    /* ── Search input ──────────────────────────────────────────── */
+    .search-wrap { margin-bottom: 16px; }
+    .search-input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      width: 280px;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .search-input:focus { border-color: var(--accent); }
+    .search-input::placeholder { color: var(--muted); }
+
+    /* ── Sub-tabs (IR) ─────────────────────────────────────────── */
+    .sub-tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+    .sub-tab {
+      padding: 6px 16px;
+      border: 1px solid var(--border);
+      background: none;
+      border-radius: 20px;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .sub-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .sub-tab:hover:not(.active) { color: var(--text); border-color: var(--text); }
+    .sub-panel { display: none; }
+    .sub-panel.active { display: block; }
+
+    /* ── Formula block ─────────────────────────────────────────── */
+    .formula {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent3);
+      margin: 12px 0 20px;
+    }
+
+    /* ── Explainer text ────────────────────────────────────────── */
+    .explainer {
+      background: rgba(79,142,247,.06);
+      border: 1px solid rgba(79,142,247,.2);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: #94a3b8;
+    }
+
+    /* ── Image grid (pipeline charts) ─────────────────────────── */
+    .img-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .img-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .img-card img { width: 100%; display: block; }
+    .img-card-label { padding: 10px 14px; font-family: var(--font-mono); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; }
+
+    /* ── Footer ────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 0;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      margin-top: 40px;
+      text-align: center;
+      letter-spacing: .5px;
+    }
+
+    /* ── Loading state ─────────────────────────────────────────── */
+    .load-msg { color: var(--muted); font-family: var(--font-mono); font-size: 12px; padding: 24px 0; }
+    .error-msg { color: #f87171; font-family: var(--font-mono); font-size: 12px; padding: 12px 0; }
+  </style>
+</head>
+
+<body>
+<div class="wrapper">
+
+  <!-- ── Header ──────────────────────────────────────────────────────── -->
+  <header>
+    <div class="logo">RK<span>O</span></div>
+    <div style="display:flex; flex-direction:column; gap:2px;">
+      <span style="font-family:var(--font-display); font-size:13px; font-weight:600;">Resume Keyword Optimiser</span>
+      <span style="color:var(--muted); font-size:12px;">Job market intelligence dashboard</span>
     </div>
-  </body>
+    <div class="tagline">PHASE 1 · IR ENGINE</div>
+  </header>
+
+  <!-- ── Nav ─────────────────────────────────────────────────────────── -->
+  <nav>
+    <button class="tab-btn active" data-tab="overview">📊 Overview</button>
+    <button class="tab-btn" data-tab="ir">🔍 IR Analysis</button>
+    <button class="tab-btn" data-tab="charts">🖼 Pipeline Charts</button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       TAB 1 — OVERVIEW
+  ══════════════════════════════════════════════════════════════════════ -->
+  <div class="tab-panel active" id="tab-overview">
+
+    <div class="section-heading">Job Market Overview</div>
+    <p class="section-sub">
+      Summary statistics and keyword frequency pulled from the RKO pipeline reports.
+    </p>
+
+    <div class="stat-grid" id="stat-grid">
+      <div class="stat-card"><div class="stat-label">Total Jobs</div><div class="stat-value accent" id="st-total">—</div></div>
+      <div class="stat-card"><div class="stat-label">Unique Tokens</div><div class="stat-value accent2" id="st-unique">—</div></div>
+      <div class="stat-card"><div class="stat-label">Avg Tokens / Job</div><div class="stat-value accent3" id="st-avg">—</div></div>
+      <div class="stat-card"><div class="stat-label">Missing Desc.</div><div class="stat-value" id="st-missing">—</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Top 20 Keywords <span class="badge">FREQUENCY</span></div>
+        <canvas id="chart-kw"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Keyword Frequency — Inline Bars</div>
+        <div id="bar-kw"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       TAB 2 — IR ANALYSIS
+  ══════════════════════════════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-ir">
+
+    <div class="section-heading">Information Retrieval Analysis</div>
+    <p class="section-sub">
+      Core IR concepts applied to the scraped job corpus: an inverted index that maps
+      tokens to posting lists, TF-IDF ranking to surface discriminative skills, and
+      detailed keyword frequency statistics.
+    </p>
+
+    <div class="sub-tabs">
+      <button class="sub-tab active" data-sub="index">📂 Inverted Index</button>
+      <button class="sub-tab" data-sub="tfidf">📈 TF-IDF Ranking</button>
+      <button class="sub-tab" data-sub="freq">📊 Frequency Stats</button>
+    </div>
+
+    <!-- ── 2a Inverted Index ──────────────────────────────────────────── -->
+    <div class="sub-panel active" id="sub-index">
+      <div class="explainer">
+        <strong style="color:var(--accent);">Inverted Index</strong> — a data structure that maps each token to the list
+        of documents (job postings) containing it. This is how search engines find relevant documents
+        in milliseconds. The <em>posting list</em> for a token stores every document index
+        where the token appears (with position offsets for phrase queries).
+        The chart and table below show the top tokens by posting-list length (document frequency).
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Top 25 Tokens — Document Frequency <span class="badge">INDEX</span></div>
+          <canvas id="chart-index"></canvas>
+        </div>
+        <div class="card">
+          <div class="card-title">Index Search</div>
+          <div class="search-wrap">
+            <input class="search-input" id="index-search" placeholder="Filter tokens…" />
+          </div>
+          <div class="ir-table-wrap">
+            <table>
+              <thead><tr>
+                <th>#</th>
+                <th>Token</th>
+                <th style="text-align:right">Doc Freq</th>
+              </tr></thead>
+              <tbody id="index-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 2b TF-IDF ──────────────────────────────────────────────────── -->
+    <div class="sub-panel" id="sub-tfidf">
+      <div class="explainer">
+        <strong style="color:var(--accent);">TF-IDF</strong> (Term Frequency–Inverse Document Frequency) weights a token
+        by how frequently it appears in a given document, penalised by how common it is across
+        all documents. High TF-IDF → important and discriminative.
+        Low TF-IDF → either ubiquitous (like stopwords) or very rare.
+      </div>
+      <div class="formula">
+        TF-IDF(t, d) = [count(t,d) / |d|] × log( (N+1) / (1 + df(t)) )
+        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Score shown = mean TF-IDF across corpus
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">TF-IDF Score — Top 25 <span class="badge">RANKING</span></div>
+          <canvas id="chart-tfidf"></canvas>
+        </div>
+        <div class="card">
+          <div class="card-title">TF-IDF Table</div>
+          <div class="search-wrap">
+            <input class="search-input" id="tfidf-search" placeholder="Filter tokens…" />
+          </div>
+          <div class="ir-table-wrap">
+            <table>
+              <thead><tr>
+                <th>#</th>
+                <th>Token</th>
+                <th style="text-align:right">TF-IDF Score</th>
+                <th style="text-align:right">Doc Freq</th>
+                <th style="text-align:right">Doc %</th>
+              </tr></thead>
+              <tbody id="tfidf-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 2c Frequency Stats ─────────────────────────────────────────── -->
+    <div class="sub-panel" id="sub-freq">
+      <div class="explainer">
+        <strong style="color:var(--accent);">Keyword Frequency Statistics</strong> — raw occurrence counts vs
+        document-level presence. <em>Total Freq</em> counts every appearance across all tokens.
+        <em>Doc Freq</em> counts how many distinct job postings contain the token.
+        <em>Doc %</em> expresses market penetration: 80 % means 4 out of 5 jobs mention this skill.
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Total Occurrences — Top 20 <span class="badge">FREQ</span></div>
+          <canvas id="chart-freq-total"></canvas>
+        </div>
+        <div class="card">
+          <div class="card-title">Market Penetration % — Top 20 <span class="badge">DOC %</span></div>
+          <canvas id="chart-freq-pct"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Full Frequency Table</div>
+        <div class="search-wrap">
+          <input class="search-input" id="freq-search" placeholder="Filter tokens…" />
+        </div>
+        <div class="ir-table-wrap">
+          <table>
+            <thead><tr>
+              <th>#</th>
+              <th>Token</th>
+              <th style="text-align:right">Total Freq</th>
+              <th style="text-align:right">Doc Freq</th>
+              <th style="text-align:right">Doc %</th>
+            </tr></thead>
+            <tbody id="freq-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       TAB 3 — PIPELINE CHARTS
+  ══════════════════════════════════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-charts">
+    <div class="section-heading">Pipeline Charts</div>
+    <p class="section-sub">Charts generated by the RKO analysis pipeline.</p>
+    <div class="img-grid" id="img-grid">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+</div><!-- /wrapper -->
+
+<footer>
+  <div class="wrapper">RKO · Resume Keyword Optimiser · Phase 1 &amp; IR Engine</div>
+</footer>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════════
+   Utility helpers
+════════════════════════════════════════════════════════════════════════ */
+async function fetchJSON(path) {
+  try {
+    const r = await fetch(path);
+    if (!r.ok) return null;
+    return await r.json();
+  } catch { return null; }
+}
+
+async function fetchCSV(path) {
+  try {
+    const r = await fetch(path);
+    if (!r.ok) return null;
+    const text = await r.text();
+    const lines = text.trim().split('\n');
+    const headers = lines[0].split(',').map(h => h.trim().replace(/"/g,''));
+    return lines.slice(1).map(line => {
+      const vals = line.split(',').map(v => v.trim().replace(/"/g,''));
+      const obj = {};
+      headers.forEach((h, i) => obj[h] = vals[i]);
+      return obj;
+    });
+  } catch { return null; }
+}
+
+const ACCENT  = '#4f8ef7';
+const ACCENT2 = '#34d399';
+const ACCENT3 = '#f59e0b';
+const SURFACE = '#1c2130';
+
+function makeChart(id, type, labels, data, opts = {}) {
+  const ctx = document.getElementById(id);
+  if (!ctx) return;
+  return new Chart(ctx, {
+    type,
+    data: {
+      labels,
+      datasets: [{
+        label: opts.label || '',
+        data,
+        backgroundColor: opts.bg || `${ACCENT}99`,
+        borderColor: opts.border || ACCENT,
+        borderWidth: 1,
+        borderRadius: type === 'bar' ? 4 : 0,
+      }]
+    },
+    options: {
+      indexAxis: opts.horizontal ? 'y' : 'x',
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: SURFACE,
+          borderColor: '#252c3d',
+          borderWidth: 1,
+          titleColor: '#e2e8f0',
+          bodyColor: '#94a3b8',
+        }
+      },
+      scales: {
+        x: { ticks: { color: '#64748b', font: { family: 'DM Mono', size: 11 } }, grid: { color: '#252c3d' } },
+        y: { ticks: { color: '#64748b', font: { family: 'DM Mono', size: 11 } }, grid: { color: '#252c3d' } }
+      }
+    }
+  });
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   Tab navigation
+════════════════════════════════════════════════════════════════════════ */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
+  });
+});
+
+document.querySelectorAll('.sub-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sub-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.sub-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(`sub-${btn.dataset.sub}`).classList.add('active');
+  });
+});
+
+/* ════════════════════════════════════════════════════════════════════════
+   Table render helpers
+════════════════════════════════════════════════════════════════════════ */
+function renderIndexTable(data, filter = '') {
+  const tbody = document.getElementById('index-tbody');
+  const rows = data.filter(d => !filter || d.token.includes(filter.toLowerCase()));
+  tbody.innerHTML = rows.slice(0, 50).map((d, i) => `
+    <tr>
+      <td class="rank-cell">${i + 1}</td>
+      <td class="token-cell">${d.token}</td>
+      <td class="num-cell">${d.doc_freq}</td>
+    </tr>`).join('');
+}
+
+function renderTfidfTable(data, filter = '') {
+  const tbody = document.getElementById('tfidf-tbody');
+  const rows = data.filter(d => !filter || d.token.includes(filter.toLowerCase()));
+  tbody.innerHTML = rows.slice(0, 50).map((d, i) => `
+    <tr>
+      <td class="rank-cell">${i + 1}</td>
+      <td class="token-cell">${d.token}</td>
+      <td class="num-cell">${d.tfidf_score}</td>
+      <td class="num-cell">${d.doc_freq}</td>
+      <td class="pct-cell">${d.doc_pct}%</td>
+    </tr>`).join('');
+}
+
+function renderFreqTable(data, filter = '') {
+  const tbody = document.getElementById('freq-tbody');
+  const rows = data.filter(d => !filter || d.token.includes(filter.toLowerCase()));
+  tbody.innerHTML = rows.slice(0, 50).map((d, i) => `
+    <tr>
+      <td class="rank-cell">${i + 1}</td>
+      <td class="token-cell">${d.token}</td>
+      <td class="num-cell">${d.total_freq}</td>
+      <td class="num-cell">${d.doc_freq}</td>
+      <td class="pct-cell">${d.doc_pct}%</td>
+    </tr>`).join('');
+}
+
+function renderBarKw(data, maxVal) {
+  const el = document.getElementById('bar-kw');
+  el.innerHTML = data.slice(0, 20).map(d => {
+    const count = parseInt(d.count || d.frequency || Object.values(d)[1] || 0);
+    const pct   = Math.round(count / maxVal * 100);
+    const token = d.keyword || d.token || Object.values(d)[0] || '?';
+    return `<div class="bar-row">
+      <span class="bar-label">${token}</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+      <span class="bar-count">${count}</span>
+    </div>`;
+  }).join('');
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   Pipeline chart images
+════════════════════════════════════════════════════════════════════════ */
+const CHART_IMGS = [
+  { file: '../reports/top_keywords.png',           label: 'Top Keywords' },
+  { file: '../reports/company_counts.png',         label: 'Company Counts' },
+  { file: '../reports/location_counts.png',        label: 'Location Counts' },
+  { file: '../reports/industry_counts.png',        label: 'Industry Counts' },
+  { file: '../reports/employment_type_counts.png', label: 'Employment Type' },
+  { file: '../reports/token_count_hist.png',       label: 'Token Histogram' },
+];
+
+function renderPipelineCharts() {
+  const grid = document.getElementById('img-grid');
+  grid.innerHTML = CHART_IMGS.map(c => `
+    <div class="img-card">
+      <img src="${c.file}" alt="${c.label}" onerror="this.parentElement.style.display='none'" />
+      <div class="img-card-label">${c.label}</div>
+    </div>`).join('');
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   Bootstrap
+════════════════════════════════════════════════════════════════════════ */
+async function init() {
+  /* — Summary stats — */
+  const summary = await fetchJSON('../reports/summary.json');
+  if (summary) {
+    document.getElementById('st-total').textContent   = summary.total_records ?? '—';
+    document.getElementById('st-unique').textContent  = summary.unique_tokens ?? '—';
+    document.getElementById('st-avg').textContent     = (summary.avg_token_count ?? 0).toFixed(1);
+    document.getElementById('st-missing').textContent = summary.missing_descriptions ?? 0;
+  }
+
+  /* — Keyword frequency CSV — */
+  const kwData = await fetchCSV('../reports/keyword_frequency.csv');
+  if (kwData && kwData.length) {
+    const countKey = Object.keys(kwData[0]).find(k => k !== 'keyword' && k !== 'token') || 'count';
+    const tokenKey = kwData[0].keyword !== undefined ? 'keyword' : 'token';
+    const top20    = kwData.slice(0, 20);
+    const labels   = top20.map(d => d[tokenKey]);
+    const counts   = top20.map(d => parseInt(d[countKey] || 0));
+    const maxVal   = Math.max(...kwData.slice(0, 20).map(d => parseInt(d[countKey] || 0)));
+
+    makeChart('chart-kw', 'bar', labels, counts, {
+      horizontal: true,
+      bg: `${ACCENT}99`,
+      border: ACCENT,
+    });
+    renderBarKw(kwData, maxVal);
+  }
+
+  /* — IR Index — */
+  const indexData = await fetchJSON('../reports/ir_index_summary.json');
+  if (indexData && indexData.length) {
+    const top25 = indexData.slice(0, 25);
+    makeChart('chart-index', 'bar', top25.map(d => d.token), top25.map(d => d.doc_freq), {
+      bg: `${ACCENT2}88`, border: ACCENT2,
+    });
+    renderIndexTable(indexData);
+
+    document.getElementById('index-search').addEventListener('input', e => {
+      renderIndexTable(indexData, e.target.value.trim());
+    });
+  }
+
+  /* — TF-IDF — */
+  const tfidfData = await fetchJSON('../reports/ir_tfidf.json');
+  if (tfidfData && tfidfData.length) {
+    const top25 = tfidfData.slice(0, 25);
+    makeChart('chart-tfidf', 'bar', top25.map(d => d.token), top25.map(d => d.tfidf_score), {
+      bg: `${ACCENT3}88`, border: ACCENT3,
+    });
+    renderTfidfTable(tfidfData);
+
+    document.getElementById('tfidf-search').addEventListener('input', e => {
+      renderTfidfTable(tfidfData, e.target.value.trim());
+    });
+  }
+
+  /* — Frequency stats — */
+  const freqData = await fetchJSON('../reports/ir_freq_stats.json');
+  if (freqData && freqData.length) {
+    const top20 = freqData.slice(0, 20);
+    makeChart('chart-freq-total', 'bar', top20.map(d => d.token), top20.map(d => d.total_freq), {
+      bg: `${ACCENT}88`, border: ACCENT,
+    });
+    makeChart('chart-freq-pct', 'bar', top20.map(d => d.token), top20.map(d => d.doc_pct), {
+      bg: `${ACCENT2}88`, border: ACCENT2,
+    });
+    renderFreqTable(freqData);
+
+    document.getElementById('freq-search').addEventListener('input', e => {
+      renderFreqTable(freqData, e.target.value.trim());
+    });
+  }
+
+  /* — Pipeline charts — */
+  renderPipelineCharts();
+}
+
+init();
+</script>
+</body>
 </html>
